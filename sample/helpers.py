@@ -1,11 +1,15 @@
 import csv
 import os
 
+
+def base(*path):
+   return os.path.abspath(os.path.join(os.path.dirname(__file__), *path))
+
+
 def read_secrets():
-    print 'IN READ SECRETS PATH = ', os.path.abspath('.')
     # path = 'secrets//example_secrets.txt'
-    path = os.path.join(os.path.dirname(__file__), 'secrets', 'example_secrets.txt')
-    print 'PATH = ', path
+    path = base('secrets', 'example_secrets.txt')
+    print 'IN READ SECRETS PATH = ', path
     with open(path) as s:
         secret_reader = csv.reader(s)
         for row in secret_reader:
