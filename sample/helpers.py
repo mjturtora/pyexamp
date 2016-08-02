@@ -3,7 +3,9 @@ import os
 
 def read_secrets():
     print 'IN READ SECRETS PATH = ', os.path.abspath('.')
-    with open('secrets//example_secrets.txt') as s:
+    path = os.path.join(os.path.dirname(__file__), 'secrets//example_secrets.txt')
+    print 'PATH = ', path
+    with open(path) as s:
         secret_reader = csv.reader(s)
         for row in secret_reader:
             a, b, c, d = [r for r in row]
