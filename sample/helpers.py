@@ -1,10 +1,8 @@
 import csv
 import os
 
-
 def read_secrets():
-    print "IN READ SECRETS"
-    print 'OSPATH = ', os.path.abspath('.')
+    print 'IN READ SECRETS PATH = ', os.path.abspath('.')
     with open('secrets//example_secrets.txt') as s:
         secret_reader = csv.reader(s)
         for row in secret_reader:
